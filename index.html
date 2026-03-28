@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Finder</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>🎬 Movie Finder</h1>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search movies..."
+    />
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="genreFilter">Filter by Genre</label>
+        <select id="genreFilter">
+          <option value="All">All Genres</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="sortFilter">Sort</label>
+        <select id="sortFilter">
+          <option value="default">Default</option>
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+        </select>
+      </div>
+    </div>
+
+    <section id="movieContainer" class="movie-grid"></section>
+  </main>
+
+  <div id="movieModal" class="modal hidden">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn" aria-label="Close modal">✕</button>
+
+      <div id="modalBody" class="modal-body">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,352 @@
+[
+    {
+      "id": 1,
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "description": "A thief enters dreams to steal secrets.",
+      "poster": "images/inception.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "description": "Batman faces the Joker.",
+      "poster": "images/the-dark-knight.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "description": "Explorers travel through a wormhole in space.",
+      "poster": "images/interstellar.jpg"
+    },
+    {
+      "id": 4,
+      "title": "The Pursuit of Happyness",
+      "genre": "Drama",
+      "description": "A struggling salesman fights to build a better life.",
+      "poster": "images/pursuit-of-happyness.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Avengers: Endgame",
+      "genre": "Action",
+      "description": "The Avengers assemble for a final battle.",
+      "poster": "images/avengers-endgame.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Titanic",
+      "genre": "Romance",
+      "description": "A love story unfolds aboard the Titanic.",
+      "poster": "images/titanic.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Jurassic Park",
+      "genre": "Adventure",
+      "description": "Scientists bring dinosaurs back to life.",
+      "poster": "images/jurassic-park.jpg"
+    },
+    {
+      "id": 8,
+      "title": "The Lion King",
+      "genre": "Animation",
+      "description": "A young lion learns about responsibility.",
+      "poster": "images/lion-king.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Spider-Man: No Way Home",
+      "genre": "Action",
+      "description": "Spider-Man faces villains from other universes.",
+      "poster": "images/spiderman-no-way-home.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Frozen",
+      "genre": "Animation",
+      "description": "Two sisters discover the power of love.",
+      "poster": "images/frozen.jpg"
+    },
+    {
+      "id": 11,
+      "title": "The Matrix",
+      "genre": "Sci-Fi",
+      "description": "A hacker learns reality is a simulation.",
+      "poster": "images/matrix.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Forrest Gump",
+      "genre": "Drama",
+      "description": "A kind man experiences historic events.",
+      "poster": "images/forrest-gump.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Get Out",
+      "genre": "Horror",
+      "description": "A man uncovers disturbing secrets.",
+      "poster": "images/get-out.jpg"
+    },
+    {
+      "id": 14,
+      "title": "The Hangover",
+      "genre": "Comedy",
+      "description": "Friends retrace a wild night in Vegas.",
+      "poster": "images/hangover.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Top Gun: Maverick",
+      "genre": "Action",
+      "description": "A veteran pilot trains new recruits.",
+      "poster": "images/top-gun-maverick.jpg"
+    },
+    {
+      "id": 16,
+      "title": "Toy Story",
+      "genre": "Animation",
+      "description": "Toys come to life when humans leave.",
+      "poster": "images/toy-story.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Gladiator",
+      "genre": "Action",
+      "description": "A Roman general seeks revenge.",
+      "poster": "images/gladiator.jpg"
+    },
+    {
+      "id": 18,
+      "title": "The Godfather",
+      "genre": "Crime",
+      "description": "The story of a powerful mafia family.",
+      "poster": "images/godfather.jpg"
+    },
+    {
+      "id": 19,
+      "title": "The Shawshank Redemption",
+      "genre": "Drama",
+      "description": "A prisoner forms a life-changing friendship.",
+      "poster": "images/shawshank-redemption.jpg"
+    },
+    {
+      "id": 20,
+      "title": "Iron Man",
+      "genre": "Action",
+      "description": "A billionaire builds a powerful suit.",
+      "poster": "images/iron-man.jpg"
+    },
+    {
+      "id": 21,
+      "title": "Black Panther",
+      "genre": "Action",
+      "description": "The king of Wakanda defends his nation.",
+      "poster": "images/black-panther.jpg"
+    },
+    {
+      "id": 22,
+      "title": "Doctor Strange",
+      "genre": "Fantasy",
+      "description": "A surgeon learns mystical powers.",
+      "poster": "images/doctor-strange.jpg"
+    },
+    {
+      "id": 23,
+      "title": "Thor",
+      "genre": "Fantasy",
+      "description": "The Norse god is banished to Earth.",
+      "poster": "images/thor.jpg"
+    },
+    {
+      "id": 24,
+      "title": "Guardians of the Galaxy",
+      "genre": "Sci-Fi",
+      "description": "Misfits save the galaxy.",
+      "poster": "images/guardians-galaxy.jpg"
+    },
+    {
+      "id": 25,
+      "title": "Finding Nemo",
+      "genre": "Animation",
+      "description": "A fish searches the ocean for his son.",
+      "poster": "images/finding-nemo.jpg"
+    },
+    {
+      "id": 26,
+      "title": "Up",
+      "genre": "Animation",
+      "description": "An old man floats his house with balloons.",
+      "poster": "images/up.jpg"
+    },
+    {
+      "id": 27,
+      "title": "Coco",
+      "genre": "Animation",
+      "description": "A boy journeys into the land of the dead.",
+      "poster": "images/coco.jpg"
+    },
+    {
+      "id": 28,
+      "title": "Moana",
+      "genre": "Adventure",
+      "description": "A girl sails across the ocean to save her people.",
+      "poster": "images/moana.jpg"
+    },
+    {
+      "id": 29,
+      "title": "Inside Out",
+      "genre": "Animation",
+      "description": "A young girl's emotions come to life.",
+      "poster": "images/inside-out.jpg"
+    },
+    {
+      "id": 30,
+      "title": "Joker",
+      "genre": "Drama",
+      "description": "The origin of Gotham's infamous villain.",
+      "poster": "images/joker.jpg"
+    },
+    {
+      "id": 31,
+      "title": "Deadpool",
+      "genre": "Comedy",
+      "description": "A sarcastic antihero seeks revenge.",
+      "poster": "images/deadpool.jpg"
+    },
+    {
+      "id": 32,
+      "title": "Logan",
+      "genre": "Action",
+      "description": "An aging Wolverine protects a young mutant.",
+      "poster": "images/logan.jpg"
+    },
+    {
+      "id": 33,
+      "title": "The Batman",
+      "genre": "Action",
+      "description": "Batman hunts a serial killer.",
+      "poster": "images/the-batman.jpg"
+    },
+    {
+      "id": 34,
+      "title": "Mission Impossible: Fallout",
+      "genre": "Action",
+      "description": "Ethan Hunt faces a global threat.",
+      "poster": "images/mission-impossible-fallout.jpg"
+    },
+    {
+      "id": 35,
+      "title": "Fast & Furious",
+      "genre": "Action",
+      "description": "Street racers get involved in crime.",
+      "poster": "images/fast-furious.jpg"
+    },
+    {
+      "id": 36,
+      "title": "Cars",
+      "genre": "Animation",
+      "description": "A race car learns humility.",
+      "poster": "images/cars.jpg"
+    },
+    {
+      "id": 37,
+      "title": "The Incredibles",
+      "genre": "Animation",
+      "description": "A family of superheroes saves the world.",
+      "poster": "images/incredibles.jpg"
+    },
+    {
+      "id": 38,
+      "title": "Shrek",
+      "genre": "Comedy",
+      "description": "An ogre rescues a princess.",
+      "poster": "images/shrek.jpg"
+    },
+    {
+      "id": 39,
+      "title": "Kung Fu Panda",
+      "genre": "Animation",
+      "description": "A panda becomes a kung fu master.",
+      "poster": "images/kung-fu-panda.jpg"
+    },
+    {
+      "id": 40,
+      "title": "A Quiet Place",
+      "genre": "Horror",
+      "description": "A family survives by staying silent.",
+      "poster": "images/a-quiet-place.jpg"
+    },
+    {
+      "id": 41,
+      "title": "The Conjuring",
+      "genre": "Horror",
+      "description": "Investigators face a terrifying haunting.",
+      "poster": "images/conjuring.jpg"
+    },
+    {
+      "id": 42,
+      "title": "It",
+      "genre": "Horror",
+      "description": "Kids battle a shape-shifting clown.",
+      "poster": "images/it.jpg"
+    },
+    {
+      "id": 43,
+      "title": "World War Z",
+      "genre": "Horror",
+      "description": "A man races to stop a zombie pandemic.",
+      "poster": "images/world-war-z.jpg"
+    },
+    {
+      "id": 44,
+      "title": "The Social Network",
+      "genre": "Drama",
+      "description": "The story behind Facebook.",
+      "poster": "images/social-network.jpg"
+    },
+    {
+      "id": 45,
+      "title": "La La Land",
+      "genre": "Romance",
+      "description": "Two artists chase dreams in Los Angeles.",
+      "poster": "images/la-la-land.jpg"
+    },
+    {
+      "id": 46,
+      "title": "The Greatest Showman",
+      "genre": "Musical",
+      "description": "The rise of circus visionary P.T. Barnum.",
+      "poster": "images/greatest-showman.jpg"
+    },
+    {
+      "id": 47,
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "genre": "Fantasy",
+      "description": "A boy discovers he is a wizard.",
+      "poster": "images/harry-potter-1.jpg"
+    },
+    {
+      "id": 48,
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "genre": "Fantasy",
+      "description": "A hobbit begins a quest to destroy a ring.",
+      "poster": "images/lotr-fellowship.jpg"
+    },
+    {
+      "id": 49,
+      "title": "Star Wars: A New Hope",
+      "genre": "Sci-Fi",
+      "description": "A young hero joins the rebellion.",
+      "poster": "images/star-wars-new-hope.jpg"
+    },
+    {
+      "id": 50,
+      "title": "The Notebook",
+      "genre": "Romance",
+      "description": "A timeless love story.",
+      "poster": "images/notebook.jpg"
+    }
+  ]
