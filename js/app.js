@@ -25,6 +25,7 @@ async function loadMovies() {
 
     populateGenres(movies);
     filterAndSortMovies();
+    openFromURL();
   } catch (error) {
     movieContainer.innerHTML =
       `<p class="empty-message">Failed to load movies.</p>`;
@@ -47,16 +48,23 @@ function displayMovies(movies) {
   movieContainer.innerHTML = "";
 
   if (movies.length === 0) {
-    movieContainer.innerHTML =
-      `<p class="empty-message">No movies found.</p>`;
+    const searchText = searchInput.value.trim();
+
+    movieContainer.innerHTML = `
+      <p class="empty-message">
+        Sorry, we couldn’t find "${searchText}".
+      </p>
+    `;
     return;
   }
+
+  const fragment = document.createDocumentFragment();
 
   movies.forEach((movie) => {
     const hasPoster = movie.poster && movie.poster.trim() !== "";
 
     const posterHTML = hasPoster
-      ? `<img src="${movie.poster}" class="movie-poster" alt="${movie.title}">`
+      ? `<img src="${movie.poster}" class="movie-poster" alt="${movie.title}" loading="lazy">`
       : `<div class="no-poster">${movie.title}</div>`;
 
     const card = document.createElement("article");
@@ -75,11 +83,15 @@ function displayMovies(movies) {
     `;
 
     card.addEventListener("click", () => {
+      const encoded = encodeURIComponent(movie.title);
+      window.history.pushState({ movieId: encoded }, "", `?id=${encoded}`);
       openMovieModal(movie);
     });
 
-    movieContainer.appendChild(card);
+    fragment.appendChild(card);
   });
+
+  movieContainer.appendChild(fragment);
 }
 
 function filterAndSortMovies() {
@@ -226,6 +238,75 @@ function createProviderList(title, providers) {
   `;
 }
 
+function isValidGmail(email) {
+  const pattern = /^[a-z0-9._%+-]+@gmail\.com$/i;
+  return pattern.test(email.trim());
+}
+
+function saveReview(movieTitle, reviewData) {
+  const key = "movieReviews";
+  const existingReviews = JSON.parse(localStorage.getItem(key)) || [];
+
+  existingReviews.push({
+    movieTitle,
+    email: reviewData.email,
+    name: reviewData.name,
+    review: reviewData.review,
+    createdAt: new Date().toISOString()
+  });
+
+  localStorage.setItem(key, JSON.stringify(existingReviews));
+}
+
+function setupReviewForm(movie) {
+  const reviewToggleBtn = document.getElementById("reviewToggleBtn");
+  const reviewFormWrap = document.getElementById("reviewFormWrap");
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewEmail = document.getElementById("reviewEmail");
+  const reviewName = document.getElementById("reviewName");
+  const reviewText = document.getElementById("reviewText");
+  const reviewMessage = document.getElementById("reviewMessage");
+
+  if (!reviewToggleBtn || !reviewFormWrap || !reviewForm) {
+    return;
+  }
+
+  reviewToggleBtn.addEventListener("click", () => {
+    reviewFormWrap.classList.toggle("hidden");
+  });
+
+  reviewForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const email = reviewEmail.value.trim().toLowerCase();
+    const name = reviewName.value.trim();
+    const review = reviewText.value.trim();
+
+    if (!isValidGmail(email)) {
+      reviewMessage.textContent = "Please enter a valid Gmail address.";
+      reviewMessage.className = "review-message error";
+      return;
+    }
+
+    if (name === "" || review === "") {
+      reviewMessage.textContent = "Please fill out all fields.";
+      reviewMessage.className = "review-message error";
+      return;
+    }
+
+    saveReview(movie.title, {
+      email,
+      name,
+      review
+    });
+
+    reviewMessage.textContent = `Thanks ${name}! Your review was submitted.`;
+    reviewMessage.className = "review-message success";
+
+    reviewForm.reset();
+  });
+}
+
 async function openMovieModal(movie) {
   movieModal.classList.remove("hidden");
 
@@ -247,9 +328,44 @@ async function openMovieModal(movie) {
             <p class="modal-description">${movie.description}</p>
             <p><strong>Release Date:</strong> Not found</p>
             <p><strong>Where to Watch:</strong> Not found</p>
+
+            <div class="review-area">
+              <button id="reviewToggleBtn" class="review-toggle-btn">Leave a Review</button>
+
+              <div id="reviewFormWrap" class="review-form-wrap hidden">
+                <form id="reviewForm" class="review-form">
+                  <input
+                    type="email"
+                    id="reviewEmail"
+                    placeholder="Enter your Gmail"
+                    required
+                  />
+
+                  <input
+                    type="text"
+                    id="reviewName"
+                    placeholder="Your name"
+                    required
+                  />
+
+                  <textarea
+                    id="reviewText"
+                    placeholder="Write your review here..."
+                    rows="4"
+                    required
+                  ></textarea>
+
+                  <button type="submit" class="review-submit-btn">Submit Review</button>
+                </form>
+
+                <p id="reviewMessage" class="review-message"></p>
+              </div>
+            </div>
           </div>
         </div>
       `;
+
+      setupReviewForm(movie);
       return;
     }
 
@@ -286,9 +402,44 @@ async function openMovieModal(movie) {
             ${createProviderList("Rent", providers.rent)}
             ${createProviderList("Buy", providers.buy)}
           </div>
+
+          <div class="review-area">
+            <button id="reviewToggleBtn" class="review-toggle-btn">Leave a Review</button>
+
+            <div id="reviewFormWrap" class="review-form-wrap hidden">
+              <form id="reviewForm" class="review-form">
+                <input
+                  type="email"
+                  id="reviewEmail"
+                  placeholder="Enter your Gmail"
+                  required
+                />
+
+                <input
+                  type="text"
+                  id="reviewName"
+                  placeholder="Your name"
+                  required
+                />
+
+                <textarea
+                  id="reviewText"
+                  placeholder="Write your review here..."
+                  rows="4"
+                  required
+                ></textarea>
+
+                <button type="submit" class="review-submit-btn">Submit Review</button>
+              </form>
+
+              <p id="reviewMessage" class="review-message"></p>
+            </div>
+          </div>
         </div>
       </div>
     `;
+
+    setupReviewForm(movie);
   } catch (error) {
     console.error(error);
 
@@ -298,13 +449,68 @@ async function openMovieModal(movie) {
         <p>${movie.description}</p>
         <p><strong>Release Date:</strong> Could not load</p>
         <p><strong>Where to Watch:</strong> Could not load</p>
+
+        <div class="review-area">
+          <button id="reviewToggleBtn" class="review-toggle-btn">Leave a Review</button>
+
+          <div id="reviewFormWrap" class="review-form-wrap hidden">
+            <form id="reviewForm" class="review-form">
+              <input
+                type="email"
+                id="reviewEmail"
+                placeholder="Enter your Gmail"
+                required
+              />
+
+              <input
+                type="text"
+                id="reviewName"
+                placeholder="Your name"
+                required
+              />
+
+              <textarea
+                id="reviewText"
+                placeholder="Write your review here..."
+                rows="4"
+                required
+              ></textarea>
+
+              <button type="submit" class="review-submit-btn">Submit Review</button>
+            </form>
+
+            <p id="reviewMessage" class="review-message"></p>
+          </div>
+        </div>
       </div>
     `;
+
+    setupReviewForm(movie);
   }
 }
 
 function closeMovieModal() {
   movieModal.classList.add("hidden");
+  window.history.pushState({}, "", window.location.pathname);
+}
+
+function openFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get("id");
+
+  if (!movieId) {
+    return;
+  }
+
+  const decoded = decodeURIComponent(movieId);
+
+  const movie = allMovies.find(
+    (m) => m.title.toLowerCase() === decoded.toLowerCase()
+  );
+
+  if (movie) {
+    openMovieModal(movie);
+  }
 }
 
 genreFilter.addEventListener("change", filterAndSortMovies);
@@ -319,5 +525,33 @@ document.addEventListener("keydown", (event) => {
     closeMovieModal();
   }
 });
+
+window.addEventListener("popstate", () => {
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get("id");
+
+  if (movieId) {
+    const decoded = decodeURIComponent(movieId);
+
+    const movie = allMovies.find(
+      (m) => m.title.toLowerCase() === decoded.toLowerCase()
+    );
+
+    if (movie) {
+      openMovieModal(movie);
+    }
+  } else {
+    movieModal.classList.add("hidden");
+  }
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const controls = document.querySelector(".controls");
+
+if (menuToggle && controls) {
+  menuToggle.addEventListener("click", () => {
+    controls.classList.toggle("show");
+  });
+}
 
 loadMovies();
